@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #2f6b21;
+  --color-brand-green-dark: #24541a;
+  --color-brand-orange: #f28c1c;
+  --color-brand-orange-dark: #d97706;
+  --color-brand-brown: #5b3d22;
+  --color-cream: #fff8ec;
+  --color-sand: #f6ecd9;
+
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-display: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  color: #3b3226;
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Headings use Arial bold instead of the template's condensed display face. */
+.font-display {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
