@@ -30,8 +30,19 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/15 px-4 py-5 text-center text-sm">
-        <p className="font-semibold text-white">Pachoko Pachoko — Together, We Move Forward.</p>
-        <p className="mt-1 text-white/60">© {new Date().getFullYear()} Kurya Ndiko Uku CBO</p>
+        <p className="text-white/60">
+          <span className="font-semibold text-white">Pachoko Pachoko — Together, We Move Forward.</span>
+          {" · "}© {new Date().getFullYear()} Kurya Ndiko Uku CBO
+          {" · "}Developed by{" "}
+          <a
+            href="https://www.bloomsolutions.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-white hover:text-brand-orange"
+          >
+            BLOOM Consulting Services
+          </a>
+        </p>
       </div>
     </footer>
   );
