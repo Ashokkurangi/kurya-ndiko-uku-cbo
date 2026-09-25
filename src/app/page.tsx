@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import {
   BreakfastClub,
+  Gallery,
   Community,
   DonateCta,
   EducationNutrition,
@@ -21,6 +22,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Gallery />
         <WhoWeAre />
         <Mission />
         <WhatWeDo />

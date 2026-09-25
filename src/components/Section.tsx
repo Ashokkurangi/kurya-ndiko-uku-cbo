@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 
 export function Section({ id, className = "", children }: { id?: string; className?: string; children: ReactNode }) {
   return (
-    <section id={id} className={`px-4 py-16 sm:px-6 md:py-24 ${className}`}>
-      <div className="mx-auto max-w-7xl">{children}</div>
+    <section id={id} className={`py-16 md:py-24 ${className}`}>
+      {/* Same container as the header and footer so all content shares one left/right edge. */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">{children}</div>
     </section>
   );
 }

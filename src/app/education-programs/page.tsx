@@ -50,7 +50,7 @@ export default function EducationPrograms() {
       <section className="bg-brand-brown px-4 py-16 text-white sm:px-6 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl">
-            <Image src="/images/village-road.jpg" alt="A supporter holding a young child on a village road in Africa" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover object-[30%_20%]" />
+            <Image src="/images/4.png" alt="Children sharing a meal at a long table in the dining hall, decorated with flags from supporters around the world" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover object-[50%_65%]" />
           </div>
           <div>
             <Heading eyebrow="Education & Nutrition" light>When Children Are Fed, They Can Focus on Learning</Heading>

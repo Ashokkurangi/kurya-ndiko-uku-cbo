@@ -31,11 +31,11 @@ export default function AboutUs() {
           </div>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-t-[999px] rounded-b-3xl shadow-xl">
             <Image
-              src="/images/village-children.jpg"
-              alt="Children and a supporter gathered outside a village home in Malawi"
+              src="/images/1.png"
+              alt="Plates of rice, bread rolls and juice laid out for the children, with nursery children waiting in the background"
               fill
               sizes="(min-width: 1024px) 420px, 90vw"
-              className="object-cover object-[35%_50%]"
+              className="object-cover object-top"
             />
           </div>
         </div>

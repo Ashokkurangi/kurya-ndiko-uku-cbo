@@ -22,7 +22,7 @@ export default function OurChildren() {
   return (
     <PageFrame>
       <section className="relative flex min-h-[320px] items-end px-4 pb-10 sm:px-6 md:min-h-[400px]">
-        <Image src="/images/children-band.jpg" alt="Children from a village community in Malawi looking towards the camera" fill priority sizes="100vw" className="-z-10 object-cover object-top" />
+        <Image src="/images/Hero.png" alt="Nursery children in blue uniforms raising their hands outside the Bana Mbatose breakfast and lunch building" fill priority quality={90} sizes="100vw" className="-z-10 object-cover object-[50%_40%]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="mx-auto w-full max-w-7xl text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.5)]">
           <h1 className="font-display text-4xl sm:text-6xl">Our Children</h1>
@@ -33,7 +33,7 @@ export default function OurChildren() {
       <section id="nursery" className="px-4 py-16 sm:px-6 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
-            <Image src="/images/play.jpg" alt="Children playing together outdoors in a village" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+            <Image src="/images/2.png" alt="Nursery children in blue uniforms sitting together on a mat eating porridge" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover object-[50%_40%]" />
           </div>
           <div>
             <Heading eyebrow="Bana Mbatose Nursery">“They Are All Ours”</Heading>

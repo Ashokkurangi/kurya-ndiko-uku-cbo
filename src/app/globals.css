@@ -34,3 +34,83 @@ body {
   font-weight: 700;
   letter-spacing: -0.01em;
 }
+
+/* ---------- Home hero motion (see Hero.tsx / HeroParallax.tsx) ---------- */
+
+/* Scroll parallax layer: --sy comes from HeroParallax; --scroll is set per layer. */
+.hero-depth {
+  transform: translate3d(0, calc(var(--sy, 0) * var(--scroll, 0) * 1px), 0);
+  will-change: transform;
+}
+
+/* Photo frame fades in from slightly zoomed out. */
+.hero-reveal {
+  animation: hero-reveal 2.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* One slow zoom-out as the hero loads; the photo then rests at its natural framing. */
+.hero-kenburns {
+  --kb-scale: 1.03;
+  --kb-x: -0.6%;
+  --kb-y: -0.4%;
+  animation: hero-kenburns 36s cubic-bezier(0.25, 0.1, 0.25, 1) reverse both;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero-kenburns {
+    --kb-scale: 1.05;
+    --kb-x: -1%;
+    --kb-y: -0.7%;
+  }
+}
+
+/* Text enters with a short, staggered fade-up (delay set inline). */
+.hero-fade-up {
+  animation: hero-fade-up 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(var(--kb-scale)) translate3d(var(--kb-x), var(--kb-y), 0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal,
+  .hero-kenburns,
+  .hero-fade-up {
+    animation: none;
+  }
+  .hero-depth {
+    transform: none;
+  }
+}

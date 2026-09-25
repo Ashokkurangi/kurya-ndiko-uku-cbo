@@ -43,9 +43,10 @@ export function Mission() {
   return (
     <Section id="mission">
       <Heading eyebrow="Our Mission" center>Creating Opportunities for Children</Heading>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Flex-wrap so the odd last row is centred rather than left-hanging */}
+      <div className="mt-12 flex flex-wrap justify-center gap-6">
         {missionItems.map((item) => (
-          <article key={item.title} className={card}>
+          <article key={item.title} className={`${card} w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc((100%-3rem)/3)]`}>
             <div className={iconBox}><Icon name={item.icon} className="h-7 w-7" /></div>
             <h3 className="text-xl font-bold text-brand-green">{item.title}</h3>
             <p className="mt-2 leading-relaxed">{item.text}</p>
@@ -144,9 +145,9 @@ export function EducationNutrition() {
         <p>But education becomes harder when children are hungry.</p>
         <p>Our approach connects education and nutrition because both are important to a child&apos;s development.</p>
       </div>
-      <ul className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+      <ul className="mt-12 flex flex-wrap justify-center gap-4">
         {educationBlocks.map((block) => (
-          <li key={block.title} className="flex flex-col items-center rounded-2xl bg-brand-green px-4 py-8 text-center text-white shadow-md">
+          <li key={block.title} className="flex w-[calc(50%-0.5rem)] flex-col items-center rounded-2xl bg-brand-green px-4 py-8 md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-4rem)/5)] text-center text-white shadow-md">
             <Icon name={block.icon} className="h-10 w-10 text-brand-orange" />
             <h3 className="mt-3 text-lg font-bold">{block.title}</h3>
           </li>
@@ -160,13 +161,13 @@ export function WhySupport() {
   return (
     <Section id="support" className="bg-sand">
       <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+        <div className="relative aspect-[1528/1029] overflow-hidden rounded-2xl shadow-lg">
           <Image
-            src="/images/community.jpg"
-            alt="A smiling child being held by a supporter in a sunlit field"
+            src="/images/people-food.png"
+            alt="A group of women from the community in colourful wraps crocheting together outdoors"
             fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-[30%_50%]"
+            sizes="(min-width: 1280px) 616px, (min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
           />
         </div>
         <div>
@@ -254,6 +255,42 @@ export function DonateCta() {
         <p className="mt-8 font-display text-2xl text-brand-orange-dark sm:text-3xl">Give What You Can. Help Where It Matters.</p>
         <div className="mt-8"><Button href={DONATE_HREF} variant="green">Donate Now</Button></div>
         {/* TODO: link to real donation method (bank details / payment link) once provided. */}
+      </div>
+    </Section>
+  );
+}
+
+const galleryPhotos = [
+  { src: "/images/3.png", caption: "Breakfast is served", alt: "A carer serving cups of porridge to nursery children sitting on a blue mat outdoors" },
+  { src: "/images/5.png", caption: "Porridge time", alt: "A young boy in a giraffe jumper smiling while eating porridge from a red cup" },
+  { src: "/images/6.png", caption: "Sharing smiles", alt: "A laughing child in a blue uniform carrying bags of maize flour" },
+  { src: "/images/4.png", caption: "Lunch together", alt: "Children sharing a meal at a long table in the dining hall, decorated with flags from supporters around the world" },
+];
+
+export function Gallery() {
+  return (
+    <Section id="gallery">
+      <Heading eyebrow="Our Community" center>Moments of Hope &amp; Togetherness</Heading>
+      {/* Staggered: every second photo sits lower, so the row reads as a gentle wave. */}
+      <div className="mt-12 grid grid-cols-2 items-start gap-4 lg:grid-cols-4 lg:gap-6">
+        {galleryPhotos.map((photo, i) => (
+          <figure
+            key={photo.src}
+            className={`group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-lg ring-1 ring-black/5 ${i % 2 === 1 ? "mt-8 lg:mt-16" : ""}`}
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(min-width: 1280px) 300px, (min-width: 1024px) 25vw, 50vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent px-4 pb-4 pt-12 sm:px-5 sm:pb-5">
+              <span className="mb-2 block h-1 w-8 rounded-full bg-brand-orange" aria-hidden="true" />
+              <span className="font-display text-sm text-white sm:text-lg">{photo.caption}</span>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </Section>
   );
