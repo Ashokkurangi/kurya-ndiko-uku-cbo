@@ -4,13 +4,29 @@
   --color-brand-green: #2f6b21;
   --color-brand-green-dark: #24541a;
   --color-brand-orange: #f28c1c;
-  --color-brand-orange-dark: #d97706;
+  /* Deep enough for white text / small text on white to meet WCAG AA (≈5:1). */
+  --color-brand-orange-dark: #b45309;
+  /* Small orange-tinted text on green backgrounds. */
+  --color-brand-orange-light: #fed7aa;
   --color-brand-brown: #5b3d22;
   --color-cream: #fff8ec;
   --color-sand: #f6ecd9;
 
+  /* Arial everywhere: every Tailwind font family points at the same stack. */
   --font-sans: Arial, Helvetica, sans-serif;
   --font-display: Arial, Helvetica, sans-serif;
+  --font-serif: Arial, Helvetica, sans-serif;
+  --font-mono: Arial, Helvetica, sans-serif;
+  --default-font-family: Arial, Helvetica, sans-serif;
+  --default-mono-font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Form controls and buttons don't always inherit the page font, so set it explicitly. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 html {

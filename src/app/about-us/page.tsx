@@ -1,16 +1,34 @@
-import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { CommunitySection } from "@/components/CommunitySection";
+import { CtaBanner } from "@/components/CtaBanner";
+import { LeadershipSection } from "@/components/Leadership";
 import { Crumbs, PageFrame } from "@/components/PageShell";
-import { Heading, Highlight } from "@/components/Section";
-import { missionItems } from "@/content/site";
+import { RegistrationCertificate } from "@/components/RegistrationCertificate";
+import { MissionSection, StorySection } from "@/components/Story";
+import { SupportersSection } from "@/components/Supporters";
+import { photos } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About Us | Kurya Ndiko Uku CBO",
-  description: "Learn about Kurya Ndiko Uku CBO, a community-led organisation supporting children and families near Mzimba, Northern Malawi.",
-};
+export const metadata = pageMetadata({
+  title: "About Us",
+  description:
+    "The story of Kurya Ndiko Uku Community Based Organisation in Malawi: community work since 2005, registered as a CBO in 2010, our mission, leadership, supporters and registration.",
+  path: "/about-us",
+  image: photos.mealTable,
+});
 
-// Layout: story-style split intro with an arched photo, an orange quote band,
-// a numbered mission list, and a centred green community section.
+const sections = [
+  { label: "Our Story", href: "#our-story" },
+  { label: "Our Mission", href: "#our-mission" },
+  { label: "Our Leadership", href: "#our-leadership" },
+  { label: "Our Community", href: "#our-community" },
+  { label: "Our Supporters", href: "#our-supporters" },
+  { label: "CBO Registration", href: "#cbo-registration" },
+];
+
+// Layout: story-style split intro with an arched photo, an in-page section menu,
+// then story, orange quote band, mission, leadership, community, supporters and registration.
 export default function AboutUs() {
   return (
     <PageFrame>
@@ -18,30 +36,36 @@ export default function AboutUs() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <Crumbs title="About Us" className="text-brand-brown" />
-            <h1 className="mt-6 font-display text-4xl text-brand-green sm:text-5xl">About Us</h1>
+            <h1 className="mt-6 font-display text-4xl text-brand-green sm:text-5xl">About Kurya Ndiko Uku Community Based Organisation</h1>
             <p className="mt-4 text-2xl font-bold leading-snug text-brand-brown">
-              “Kurya Ndiko Uku” means “This is the way to eat.”
+              A community-based organisation working directly with children, caregivers and families in Malawi.
             </p>
             <div className="mt-6 space-y-4 text-lg leading-relaxed">
-              <p>Kurya Ndiko Uku CBO is a Community Based Organisation working with local communities near Mzimba, Northern Malawi.</p>
-              <p>Our name reflects something at the heart of our work: food, hospitality, community and looking after one another.</p>
-              <p>We are a community-led organisation committed to helping children and families facing poverty and difficult circumstances.</p>
-              <p>Our work brings together people from Malawi and friends around the world who believe that small acts of support can create meaningful change.</p>
+              <p>Our community work began in 2005, when we saw how unwell many children were because of poor nutrition. We were formally registered as a Community Based Organisation on 30 July 2010.</p>
+              <p>Today we support children, caregivers and community members across 17 villages.</p>
             </div>
           </div>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-t-[999px] rounded-b-3xl shadow-xl">
-            <Image
-              src="/images/1.png"
-              alt="Plates of rice, bread rolls and juice laid out for the children, with nursery children waiting in the background"
-              fill
-              sizes="(min-width: 1024px) 420px, 90vw"
-              className="object-cover object-top"
-            />
+            <Image src={photos.mealTable.src} alt={photos.mealTable.alt} fill priority sizes="(min-width: 1024px) 420px, 90vw" className="object-cover object-top" />
           </div>
         </div>
       </section>
 
-      <section className="bg-brand-orange px-4 py-14 text-white sm:px-6">
+      <nav aria-label="About us sections" className="sticky top-[67px] z-40 border-b border-sand bg-white/95 backdrop-blur sm:top-[75px]">
+        <ul className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3 sm:px-6">
+          {sections.map((s) => (
+            <li key={s.href} className="shrink-0">
+              <Link href={s.href} className="block rounded-full px-4 py-2 text-sm font-semibold text-brand-green ring-1 ring-brand-green/20 transition hover:bg-brand-green hover:text-white">
+                {s.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <StorySection className="scroll-mt-16" />
+
+      <section className="bg-brand-orange px-4 py-14 text-[#3a2413] sm:px-6">
         <div className="mx-auto max-w-4xl text-center">
           <p className="font-display text-3xl sm:text-4xl">Pachoko Pachoko — Little by Little</p>
           <p className="mt-4 text-lg leading-relaxed">
@@ -51,36 +75,12 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <Heading eyebrow="Our Mission">Creating Opportunities for Children</Heading>
-          <ol className="mt-10 grid gap-x-16 md:grid-cols-2">
-            {missionItems.map((item, i) => (
-              <li key={item.title} className="flex gap-5 border-t border-brand-green/20 py-6">
-                <span className="font-display text-4xl text-brand-orange">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <h2 className="text-xl font-bold text-brand-green">{item.title}</h2>
-                  <p className="mt-1 leading-relaxed">{item.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="bg-brand-green px-4 py-16 text-white sm:px-6 md:py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <Heading eyebrow="Our Community" center light>From Malawi to Friends Around the World</Heading>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed">
-            <p>Our community reaches far beyond the villages where our work takes place.</p>
-            <p>Friends and supporters from different parts of the world have joined us in raising awareness, sharing our experiences and supporting projects that benefit children.</p>
-            <p>What began as conversations between people sitting together on a mat has grown into a wider community connected by a common purpose.</p>
-            <p className="font-bold">We share stories. We share photographs. We share ideas. We support one another.</p>
-            <p>And, little by little, we make progress.</p>
-          </div>
-          <div className="mt-8 inline-block text-left"><Highlight title="Pachoko Pachoko" light><p>Together we can help create brighter opportunities for children in Malawi.</p></Highlight></div>
-        </div>
-      </section>
+      <MissionSection className="scroll-mt-16" />
+      <LeadershipSection className="scroll-mt-16 bg-sand" />
+      <CommunitySection className="scroll-mt-16 bg-brand-green text-white" />
+      <SupportersSection detailed className="scroll-mt-16 bg-cream" />
+      <RegistrationCertificate className="scroll-mt-16" />
+      <CtaBanner heading="Stand With Our Children" />
     </PageFrame>
   );
 }

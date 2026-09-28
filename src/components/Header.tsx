@@ -19,14 +19,14 @@ export function Header() {
           <Image src="/images/logo.png" alt="Kurya Ndiko Uku CBO logo" width={900} height={294} priority className="h-12 w-auto sm:h-14" />
         </Link>
 
-        <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-7">
+        <nav aria-label="Main" className="hidden xl:block">
+          <ul className="flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
                   aria-current={pathname === item.href ? "page" : undefined}
-                  className={`text-sm font-medium transition-colors hover:text-brand-orange ${pathname === item.href ? "text-brand-orange" : "text-brand-brown"}`}
+                  className={`text-sm font-medium transition-colors hover:text-brand-orange-dark ${pathname === item.href ? "text-brand-orange-dark" : "text-brand-brown"}`}
                 >
                   {item.label}
                 </Link>
@@ -42,7 +42,7 @@ export function Header() {
           </Button>
           <button
             type="button"
-            className="rounded-md p-2 text-brand-green lg:hidden"
+            className="rounded-md p-2 text-brand-green xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -54,7 +54,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-menu" aria-label="Mobile" className="border-t border-sand bg-white lg:hidden">
+        <nav id="mobile-menu" aria-label="Mobile" className="border-t border-sand bg-white xl:hidden">
           <ul className="mx-auto max-w-7xl px-4 py-2 sm:px-6">
             {navItems.map((item) => (
               <li key={item.label}>
@@ -62,7 +62,7 @@ export function Header() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   aria-current={pathname === item.href ? "page" : undefined}
-                  className={`block border-b border-sand py-3 font-medium ${pathname === item.href ? "text-brand-orange" : "text-brand-brown"}`}
+                  className={`block border-b border-sand py-3 font-medium ${pathname === item.href ? "text-brand-orange-dark" : "text-brand-brown"}`}
                 >
                   {item.label}
                 </Link>

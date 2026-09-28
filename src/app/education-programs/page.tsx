@@ -1,74 +1,74 @@
-import type { Metadata } from "next";
 import Image from "next/image";
-import { Icon } from "@/components/Icon";
+import Link from "next/link";
+import { CtaBanner } from "@/components/CtaBanner";
 import { Crumbs, PageFrame } from "@/components/PageShell";
+import { ProgrammeDetail } from "@/components/Programmes";
 import { Heading } from "@/components/Section";
-import { educationBlocks, whatWeDo } from "@/content/site";
+import { photos, programmes } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Education & Programs | Kurya Ndiko Uku CBO",
-  description: "Early years education, breakfast and nutrition, community development and international partnerships in Northern Malawi.",
-};
+export const metadata = pageMetadata({
+  title: "Education & Programs",
+  description:
+    "Kurya Ndiko Uku CBO's programmes in Malawi: nutrition and food support, education, healthcare, community support, support for vulnerable children and community transportation.",
+  path: "/education-programs",
+  image: photos.diningHall,
+});
 
-// Layout: solid green centred header, a sticky-intro + numbered programme list,
-// and a dark education/nutrition panel with a photo and icon list.
+// Layout: solid green centred header, a sticky intro + programme index beside the numbered programme list,
+// and a dark photo panel before the closing CTA.
 export default function EducationPrograms() {
   return (
     <PageFrame>
       <section className="bg-brand-green px-4 py-14 text-center text-white sm:px-6 md:py-20">
         <Crumbs title="Education & Programs" className="flex justify-center" />
         <h1 className="mt-5 font-display text-4xl sm:text-5xl">Education &amp; Programs</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-xl leading-relaxed text-white/90">We believe that education and nutrition go hand in hand.</p>
+        <p className="mx-auto mt-4 max-w-2xl text-xl leading-relaxed text-white/90">
+          Practical support for children, caregivers and families, responding to real needs with the resources available to us.
+        </p>
       </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.25fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <Heading eyebrow="What We Do">Supporting Children Through Education, Food &amp; Community</Heading>
-            <div className="mt-6 space-y-4 text-lg leading-relaxed">
-              <p>A hungry child may struggle to concentrate in class. A child without access to early education may start their school journey already facing disadvantages.</p>
-              <p>That is why our work focuses on practical support that addresses children&apos;s immediate needs while helping create opportunities for their future.</p>
-            </div>
+            <Heading eyebrow="What We Do">Our Programmes</Heading>
+            <p className="mt-6 text-lg leading-relaxed">
+              Our work began with children&apos;s nutrition in 2005. Since then it has grown to include education, healthcare access, basic needs and community transport.
+            </p>
+            <nav aria-label="Programmes" className="mt-8">
+              <ol className="space-y-2">
+                {programmes.map((p, i) => (
+                  <li key={p.id}>
+                    <Link href={`#${p.id}`} className="flex gap-3 rounded-lg px-3 py-2 font-semibold text-brand-green transition hover:bg-cream">
+                      <span className="text-brand-orange-dark">{i + 1}.</span> {p.title}
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </nav>
           </div>
-          <ol>
-            {whatWeDo.map((item, i) => (
-              <li key={item.title} className="flex gap-6 border-b border-brand-green/20 py-8 first:pt-0">
-                <span className="font-display text-5xl text-brand-orange">{i + 1}</span>
-                <div>
-                  <div className="flex items-center gap-3">
-                    <Icon name={item.icon} className="h-6 w-6 text-brand-green" />
-                    <h2 className="text-2xl font-bold text-brand-green">{item.title}</h2>
-                  </div>
-                  <p className="mt-2 text-lg leading-relaxed">{item.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <div>
+            {programmes.map((p, i) => <ProgrammeDetail key={p.id} programme={p} index={i} />)}
+          </div>
         </div>
       </section>
 
       <section className="bg-brand-brown px-4 py-16 text-white sm:px-6 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl">
-            <Image src="/images/4.png" alt="Children sharing a meal at a long table in the dining hall, decorated with flags from supporters around the world" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover object-[50%_65%]" />
+            <Image src={photos.diningHall.src} alt={photos.diningHall.alt} fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover object-[50%_65%]" />
           </div>
           <div>
             <Heading eyebrow="Education & Nutrition" light>When Children Are Fed, They Can Focus on Learning</Heading>
             <div className="mt-6 space-y-3 text-lg leading-relaxed text-white/90">
-              <p>Education can open doors to opportunities that may otherwise remain out of reach.</p>
-              <p>But education becomes harder when children are hungry.</p>
-              <p>Our approach connects education and nutrition because both are important to a child&apos;s development.</p>
+              <p>Education can open doors to opportunities that may otherwise remain out of reach. But education becomes harder when children are hungry.</p>
+              <p>That is why food and education go hand in hand in our work, from porridge for young children to our nursery, where one of our first children began a journey that has now led to a place at university.</p>
             </div>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {educationBlocks.map((b) => (
-                <li key={b.title} className="flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 font-semibold">
-                  <Icon name={b.icon} className="h-6 w-6 text-brand-orange" /> {b.title}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
+
+      <CtaBanner heading="Help Our Programmes Continue" secondary={{ label: "Ways to Help", href: "/get-involved" }} />
     </PageFrame>
   );
 }
