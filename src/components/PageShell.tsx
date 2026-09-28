@@ -8,7 +8,7 @@ export function PageFrame({ children }: { children: ReactNode }) {
   return (
     <div id="top">
       <Header />
-      <main id="main">{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
   );

@@ -12,7 +12,7 @@ export function Section({ id, className = "", children }: { id?: string; classNa
 export function Heading({ eyebrow, children, center, light }: { eyebrow?: string; children: ReactNode; center?: boolean; light?: boolean }) {
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : ""}>
-      {eyebrow && <p className={`text-sm font-bold uppercase tracking-widest ${light ? "text-brand-orange-light" : "text-brand-orange-dark"}`}>{eyebrow}</p>}
+      {eyebrow && <p className={`text-sm font-bold uppercase tracking-widest ${light ? "text-brand-orange" : "text-brand-orange-dark"}`}>{eyebrow}</p>}
       <h2 className={`font-display text-3xl leading-tight sm:text-4xl ${light ? "text-white" : "text-brand-green"}`}>{children}</h2>
     </div>
   );

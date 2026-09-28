@@ -7,16 +7,26 @@ import { Crumbs, PageFrame } from "@/components/PageShell";
 import { RegistrationCertificate } from "@/components/RegistrationCertificate";
 import { MissionSection, StorySection } from "@/components/Story";
 import { SupportersSection } from "@/components/Supporters";
-import { photos } from "@/content/site";
-import { pageMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+import { SITE_URL, photos } from "@/content/site";
 
-export const metadata = pageMetadata({
-  title: "About Us",
-  description:
-    "The story of Kurya Ndiko Uku Community Based Organisation in Malawi: community work since 2005, registered as a CBO in 2010, our mission, leadership, supporters and registration.",
-  path: "/about-us",
-  image: photos.mealTable,
-});
+const description =
+  "The story of Kurya Ndiko Uku Community Based Organisation in Malawi: community work since 2005, registered as a CBO in 2010, our mission, leadership, supporters and registration.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: "About Us | Kurya Ndiko Uku CBO",
+  description,
+  alternates: { canonical: "/about-us" },
+  openGraph: {
+    type: "website",
+    url: "/about-us",
+    siteName: "Kurya Ndiko Uku Community Based Organisation",
+    title: "About Us | Kurya Ndiko Uku CBO",
+    description,
+    images: [{ url: photos.mealTable.src, alt: photos.mealTable.alt }],
+  },
+};
 
 const sections = [
   { label: "Our Story", href: "#our-story" },

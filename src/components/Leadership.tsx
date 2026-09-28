@@ -21,7 +21,7 @@ export function LeadershipSection({ className = "" }: { className?: string }) {
               {initials(person.name)}
             </span>
             <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-brand-orange-light">{person.role}</p>
+              <p className="text-sm font-bold uppercase tracking-widest text-brand-orange">{person.role}</p>
               <p className="font-display text-2xl">{person.name}</p>
             </div>
           </li>

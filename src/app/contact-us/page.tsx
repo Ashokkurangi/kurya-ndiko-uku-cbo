@@ -1,13 +1,12 @@
-import { pageMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { Icon, type IconName } from "@/components/Icon";
 import { Crumbs, PageFrame } from "@/components/PageShell";
 
-export const metadata = pageMetadata({
-  title: "Contact Us",
-  description: "Get in touch with Kurya Ndiko Uku Community Based Organisation in Mzimba, Northern Malawi, about donating, volunteering or becoming a well-wisher.",
-  path: "/contact-us",
-});
+export const metadata: Metadata = {
+  title: "Contact Us | Kurya Ndiko Uku CBO",
+  description: "Get in touch with Kurya Ndiko Uku CBO, a Community Based Organisation in Mzimba, Northern Malawi.",
+};
 
 // Only the location was provided. Replace each placeholder with verified details.
 const details: { title: string; icon: IconName; value: string; placeholder?: boolean }[] = [
@@ -40,7 +39,7 @@ export default function ContactUs() {
                     <Icon name={d.icon} className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-sm font-bold uppercase tracking-wider text-brand-orange-light">{d.title}</p>
+                    <p className="text-sm font-bold uppercase tracking-wider text-brand-orange">{d.title}</p>
                     <p className={d.placeholder ? "italic text-white/70" : ""}>{d.value}</p>
                   </div>
                 </li>
@@ -51,7 +50,7 @@ export default function ContactUs() {
           <div className="rounded-3xl bg-cream p-8 md:p-12">
             <p className="text-sm font-bold uppercase tracking-widest text-brand-orange-dark">Get in Touch</p>
             <h2 className="font-display text-3xl text-brand-green sm:text-4xl">We Would Love to Hear From You</h2>
-            <p className="mt-4 text-lg leading-relaxed">Whether you would like to donate, support children&apos;s nutrition or education, become a well-wisher or volunteer, we would be glad to hear from you.</p>
+            <p className="mt-4 text-lg leading-relaxed">Whether you would like to donate, support education, help the Breakfast Club or become a partner, we would be glad to hear from you.</p>
             <ContactForm />
           </div>
         </div>

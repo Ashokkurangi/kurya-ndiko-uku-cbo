@@ -31,7 +31,7 @@ export function CtaBanner({
           )}
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Button href={primary.href} variant="white">{primary.label}</Button>
+          <Button href={primary.href}>{primary.label}</Button>
           {secondary && <Button href={secondary.href} variant="outline">{secondary.label}</Button>}
         </div>
       </div>

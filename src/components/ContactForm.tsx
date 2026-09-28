@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { CONTACT_FORM_ENDPOINT, contactTopics } from "@/content/site";
 
 type Status = "idle" | "sending" | "sent" | "error" | "not-connected";
@@ -11,14 +11,6 @@ const label = "mb-1 block text-sm font-bold text-brand-brown";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const topicRef = useRef<HTMLSelectElement>(null);
-
-  // Links such as /contact-us?topic=volunteer preselect the matching topic.
-  useEffect(() => {
-    const key = new URLSearchParams(window.location.search).get("topic");
-    const match = contactTopics.find((t) => t.key === key);
-    if (match && topicRef.current) topicRef.current.value = match.label;
-  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -47,7 +39,7 @@ export function ContactForm() {
   }
 
   return (
-    <form id="message" onSubmit={onSubmit} className="mt-6 space-y-5" aria-describedby="form-status">
+    <form onSubmit={onSubmit} className="mt-6 space-y-5" aria-describedby="form-status">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={label}>Your name *</label>
@@ -63,8 +55,8 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="topic" className={label}>I&apos;d like to talk about</label>
-          <select ref={topicRef} id="topic" name="topic" className={field} defaultValue={contactTopics[0].label}>
-            {contactTopics.map((t) => <option key={t.key}>{t.label}</option>)}
+          <select id="topic" name="topic" className={field} defaultValue={contactTopics[0]}>
+            {contactTopics.map((t) => <option key={t}>{t}</option>)}
           </select>
         </div>
       </div>
@@ -82,7 +74,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex items-center justify-center rounded-full bg-brand-orange-dark px-8 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-brand-brown focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-brand-orange px-8 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-brand-orange-dark disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send Message"}
       </button>
