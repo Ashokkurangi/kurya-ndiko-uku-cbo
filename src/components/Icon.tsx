@@ -17,6 +17,10 @@ const paths = {
   car: <><path d="M5 16V11l2-5h10l2 5v5" /><path d="M3 16h18v2H3z" /><path d="M5 11h14" /><circle cx="7.5" cy="18.5" r="1.5" /><circle cx="16.5" cy="18.5" r="1.5" /></>,
   shirt: <path d="M8 3l-5 3 2 4 2-1v12h10V9l2 1 2-4-5-3a4 4 0 0 1-8 0z" />,
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  mail: <><rect x="3.5" y="5" width="17" height="14" rx="2" /><path d="M4 6.5l8 6 8-6" /></>,
+  phone: <path d="M5 4.5h3.2l1.6 4-2 1.6a10.5 10.5 0 0 0 4.6 4.6l1.6-2 4 1.6V17.5a2 2 0 0 1-2.2 2C10.5 19 4.5 13 4.2 7.2A2 2 0 0 1 5 4.5z" />,
+  building: <><rect x="5" y="3" width="14" height="18" rx="1" /><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" /></>,
+  bank: <><path d="M4 10l8-6 8 6" /><path d="M5 10v8M9 10v8M15 10v8M19 10v8" /><path d="M3.5 20h17" /><path d="M4 10h16" /></>,
 };
 
 export type IconName = keyof typeof paths;

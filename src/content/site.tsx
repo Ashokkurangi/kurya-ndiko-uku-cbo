@@ -53,7 +53,7 @@ export const helpCards = [
 
 // Approximate figures pending confirmation from the organisation — replace with verified numbers when available.
 export const impactStats = [
-  { value: "50+", label: "Children Supported" },
+  { value: "100+", label: "Children Supported" },
   { value: "3+", label: "Education Programs" },
   { value: "200+", label: "Meals / Breakfasts Provided" },
   { value: "5+", label: "Community Initiatives" },

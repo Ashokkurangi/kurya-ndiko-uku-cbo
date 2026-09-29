@@ -25,10 +25,9 @@ const bankDetails: { label: string; value: string }[] = [
   { label: "Address", value: "P.O. BOX 104, Mzuzu, Malawi" },
 ];
 
+// Mobile Money and Online Donation are hidden until verified details are available.
 const ways: { title: string; icon: IconName; placeholder?: boolean }[] = [
-  { title: "Bank Transfer", icon: "school" },
-  { title: "Mobile Money", icon: "people", placeholder: true },
-  { title: "Online Donation", icon: "heart", placeholder: true },
+  { title: "Bank Transfer", icon: "bank" },
 ];
 
 // Layout: full-height split. Orange message panel on the left, giving
@@ -69,7 +68,7 @@ export default function Donate() {
             <ul className="mt-4 divide-y divide-brand-brown/15 rounded-2xl bg-cream ring-1 ring-brand-brown/10">
               {ways.map((w) => (
                 <li key={w.title} className="flex items-start gap-4 px-5 py-4">
-                  <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-orange/15 text-brand-orange-dark"><Icon name={w.icon} className="h-5 w-5" /></span>
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-orange/15 text-brand-orange-dark"><Icon name={w.icon} className="h-5 w-5" /></span>
                   <div className="w-full">
                     <p className="font-bold text-brand-green">{w.title}</p>
                     {w.placeholder ? (
