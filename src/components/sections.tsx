@@ -232,10 +232,10 @@ export function Impact() {
     <Section id="impact" className="bg-brand-green text-white">
       <Heading eyebrow="Our Impact" center light>Impact</Heading>
       <dl className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">
-        {impactStats.map((label) => (
-          <div key={label} className="rounded-2xl bg-white/10 p-6 text-center">
-            <dd className="font-display text-2xl text-brand-orange sm:text-3xl">[Verified Number]</dd>
-            <dt className="mt-2 font-medium">{label}</dt>
+        {impactStats.map((stat) => (
+          <div key={stat.label} className="rounded-2xl bg-white/10 p-6 text-center">
+            <dd className="font-display text-2xl text-brand-orange sm:text-3xl">{stat.value}</dd>
+            <dt className="mt-2 font-medium">{stat.label}</dt>
           </div>
         ))}
       </dl>

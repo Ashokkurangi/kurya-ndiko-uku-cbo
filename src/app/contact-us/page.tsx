@@ -8,12 +8,17 @@ export const metadata: Metadata = {
   description: "Get in touch with Kurya Ndiko Uku CBO, a Community Based Organisation in Mzimba, Northern Malawi.",
 };
 
-// Only the location was provided. Replace each placeholder with verified details.
-const details: { title: string; icon: IconName; value: string; placeholder?: boolean }[] = [
-  { title: "Location", icon: "pin", value: "Mzimba, Northern Malawi" },
+// Only the location and postal address were provided. Replace each remaining placeholder with verified details.
+const details: { title: string; icon: IconName; value: string; placeholder?: boolean; sub?: string }[] = [
+  {
+    title: "Location",
+    icon: "pin",
+    value: "Mzimba, Northern Malawi",
+    sub: "Kurya Ndiko Uku CBO is based in Mzimba, Malawi, in the northern region of the country.",
+  },
   { title: "Email", icon: "heart", value: "[Email address to be provided]", placeholder: true },
   { title: "Phone", icon: "people", value: "[Phone number to be provided]", placeholder: true },
-  { title: "Postal Address", icon: "school", value: "[Postal address to be provided]", placeholder: true },
+  { title: "Postal Address", icon: "school", value: "P.O. BOX 104, Mzuzu, Malawi" },
 ];
 
 // Layout: compact white header, then a green details sidebar beside a
@@ -41,6 +46,20 @@ export default function ContactUs() {
                   <div>
                     <p className="text-sm font-bold uppercase tracking-wider text-brand-orange">{d.title}</p>
                     <p className={d.placeholder ? "italic text-white/70" : ""}>{d.value}</p>
+                    {d.sub && (
+                      <>
+                        <p className="mt-2 text-sm leading-relaxed text-white/80">{d.sub}</p>
+                        <a
+                          href="https://en.wikipedia.org/wiki/Mzimba"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group mt-2 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-brand-orange hover:text-white"
+                        >
+                          Learn more about Mzimba
+                          <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                        </a>
+                      </>
+                    )}
                   </div>
                 </li>
               ))}

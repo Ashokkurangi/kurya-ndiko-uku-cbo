@@ -51,11 +51,12 @@ export const helpCards = [
   { title: "Become a Partner", icon: "handshake", text: "Schools, businesses, community groups and organisations can work with us to support our programs." },
 ] as const;
 
+// Approximate figures pending confirmation from the organisation — replace with verified numbers when available.
 export const impactStats = [
-  "Children Supported",
-  "Education Programs",
-  "Meals / Breakfasts Provided",
-  "Community Initiatives",
+  { value: "50+", label: "Children Supported" },
+  { value: "3+", label: "Education Programs" },
+  { value: "200+", label: "Meals / Breakfasts Provided" },
+  { value: "5+", label: "Community Initiatives" },
 ];
 
 // Contact form destination. PLACEHOLDER: leave empty until a form service

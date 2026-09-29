@@ -15,11 +15,20 @@ const impact = [
   "A partnership can help a community project grow.",
 ];
 
-// No donation method has been provided yet. Replace each placeholder with verified details.
-const ways: { title: string; icon: IconName }[] = [
+// Bank Transfer details are verified. Other methods await confirmed details.
+const bankDetails: { label: string; value: string }[] = [
+  { label: "Account Name", value: "Mbatose" },
+  { label: "Account Number", value: "9100006419906" },
+  { label: "SWIFT Code", value: "SBICMWMX" },
+  { label: "Bank", value: "Standard Bank" },
+  { label: "Branch", value: "Mzimba Branch" },
+  { label: "Address", value: "P.O. BOX 104, Mzuzu, Malawi" },
+];
+
+const ways: { title: string; icon: IconName; placeholder?: boolean }[] = [
   { title: "Bank Transfer", icon: "school" },
-  { title: "Mobile Money", icon: "people" },
-  { title: "Online Donation", icon: "heart" },
+  { title: "Mobile Money", icon: "people", placeholder: true },
+  { title: "Online Donation", icon: "heart", placeholder: true },
 ];
 
 // Layout: full-height split. Orange message panel on the left, giving
@@ -59,11 +68,22 @@ export default function Donate() {
             <h2 className="mt-12 font-display text-2xl text-brand-brown">Ways to Give</h2>
             <ul className="mt-4 divide-y divide-brand-brown/15 rounded-2xl bg-cream ring-1 ring-brand-brown/10">
               {ways.map((w) => (
-                <li key={w.title} className="flex items-center gap-4 px-5 py-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-orange/15 text-brand-orange-dark"><Icon name={w.icon} className="h-5 w-5" /></span>
-                  <div>
+                <li key={w.title} className="flex items-start gap-4 px-5 py-4">
+                  <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-orange/15 text-brand-orange-dark"><Icon name={w.icon} className="h-5 w-5" /></span>
+                  <div className="w-full">
                     <p className="font-bold text-brand-green">{w.title}</p>
-                    <p className="italic text-brand-brown/70">[Details to be provided]</p>
+                    {w.placeholder ? (
+                      <p className="italic text-brand-brown/70">[Details to be provided]</p>
+                    ) : (
+                      <dl className="mt-3 grid gap-x-6 gap-y-2 rounded-xl bg-white p-4 shadow-sm ring-1 ring-brand-brown/10 sm:grid-cols-2">
+                        {bankDetails.map((d) => (
+                          <div key={d.label}>
+                            <dt className="text-xs font-bold uppercase tracking-wider text-brand-brown/60">{d.label}</dt>
+                            <dd className="break-words font-semibold text-brand-brown">{d.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
                   </div>
                 </li>
               ))}

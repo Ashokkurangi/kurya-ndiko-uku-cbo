@@ -40,9 +40,7 @@ export function LeadershipSection({ className = "" }: { className?: string }) {
           </ul>
         </div>
         <div className="self-start rounded-2xl bg-cream p-6 ring-1 ring-brand-brown/10">
-          <h3 className="flex items-center gap-2 text-xl font-bold text-brand-green">
-            <Icon name="check" className="h-6 w-6 text-brand-orange-dark" /> Accounts Team
-          </h3>
+          <h3 className="text-xl font-bold text-brand-green">Accounts Team</h3>
           <ul className="mt-4 space-y-2">
             {leadership.accounts.map((name) => <li key={name} className="font-medium">{name}</li>)}
           </ul>
