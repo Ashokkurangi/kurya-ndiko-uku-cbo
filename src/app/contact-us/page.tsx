@@ -10,16 +10,11 @@ export const metadata: Metadata = {
   description: "Get in touch with Kurya Ndiko Uku CBO, a Community Based Organisation in Mzimba, Northern Malawi.",
 };
 
-const details: { title: string; icon: IconName; value: string; placeholder?: boolean; sub?: string }[] = [
-  {
-    title: "Location",
-    icon: "pin",
-    value: "Mzimba, Northern Malawi",
-    sub: "Kurya Ndiko Uku CBO is based in Mzimba, Malawi, in the northern region of the country.",
-  },
+const details: { title: string; icon: IconName; value: string; placeholder?: boolean }[] = [
+  { title: "Location", icon: "pin", value: "Mzimba, Northern Malawi" },
   { title: "Postal Address", icon: "building", value: "P.O. BOX 78, Mzimba, Malawi" },
   { title: "Email", icon: "mail", value: "lexahharrison@gmail.com" },
-  { title: "Phone", icon: "phone", value: "+265 999 312 954 / +365 888 055 740" },
+  { title: "Phone", icon: "phone", value: "+265 999 312 954 / +265 888 055 740" },
 ];
 
 // Layout: compact white header, then a green details sidebar beside a
@@ -48,10 +43,9 @@ export default function ContactUs() {
                     <div>
                       <p className="text-sm font-bold uppercase tracking-wider text-brand-orange">{d.title}</p>
                       <p className={d.placeholder ? "italic text-white/70" : ""}>{d.value}</p>
-                      {d.sub && <p className="mt-2 text-sm leading-relaxed text-white/80">{d.sub}</p>}
                     </div>
                   </li>
-                  {d.sub && (
+                  {d.title === "Location" && (
                     <li className="flex items-center gap-4">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15">
                         <Image
