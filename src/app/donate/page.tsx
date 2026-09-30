@@ -16,13 +16,14 @@ const impact = [
 ];
 
 // Bank Transfer details are verified. Other methods await confirmed details.
-const bankDetails: { label: string; value: string }[] = [
+const bankDetails: { label: string; value: string; wide?: boolean }[] = [
   { label: "Account Name", value: "Mbatose" },
   { label: "Account Number", value: "9100006419906" },
   { label: "SWIFT Code", value: "SBICMWMX" },
   { label: "Bank", value: "Standard Bank" },
   { label: "Branch", value: "Mzimba Branch" },
-  { label: "Address", value: "P.O. BOX 104, Mzuzu, Malawi" },
+  { label: "Branch Address", value: "A Long M'mbwelwa Road, P.O. BOX 104, Mzuzu, Malawi", wide: true },
+  { label: "Facility for Funding", value: "Bana Mbatose Nursery School", wide: true },
 ];
 
 // Mobile Money and Online Donation are hidden until verified details are available.
@@ -76,7 +77,7 @@ export default function Donate() {
                     ) : (
                       <dl className="mt-3 grid gap-x-6 gap-y-2 rounded-xl bg-white p-4 shadow-sm ring-1 ring-brand-brown/10 sm:grid-cols-2">
                         {bankDetails.map((d) => (
-                          <div key={d.label}>
+                          <div key={d.label} className={d.wide ? "sm:col-span-2" : ""}>
                             <dt className="text-xs font-bold uppercase tracking-wider text-brand-brown/60">{d.label}</dt>
                             <dd className="break-words font-semibold text-brand-brown">{d.value}</dd>
                           </div>

@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: "Get in touch with Kurya Ndiko Uku CBO, a Community Based Organisation in Mzimba, Northern Malawi.",
 };
 
-// Email and Phone are hidden until verified details are available.
 const details: { title: string; icon: IconName; value: string; placeholder?: boolean; sub?: string }[] = [
   {
     title: "Location",
@@ -18,7 +17,9 @@ const details: { title: string; icon: IconName; value: string; placeholder?: boo
     value: "Mzimba, Northern Malawi",
     sub: "Kurya Ndiko Uku CBO is based in Mzimba, Malawi, in the northern region of the country.",
   },
-  { title: "Postal Address", icon: "building", value: "P.O. BOX 104, Mzuzu, Malawi" },
+  { title: "Postal Address", icon: "building", value: "P.O. BOX 78, Mzimba, Malawi" },
+  { title: "Email", icon: "mail", value: "lexahharrison@gmail.com" },
+  { title: "Phone", icon: "phone", value: "+265 999 312 954 / +365 888 055 740" },
 ];
 
 // Layout: compact white header, then a green details sidebar beside a

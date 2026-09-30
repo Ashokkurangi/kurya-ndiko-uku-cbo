@@ -90,9 +90,9 @@ export const photos = {
  * If it is replaced, update `width`/`height` to the new file's real pixel size.
  */
 export const registrationCertificate = {
-  src: "/images/kurya-ndiko-uku-cbo-registration-certificate.png",
-  width: 1020,
-  height: 760,
+  src: "/images/kurya-ndiko-uku-cbo-registration-certificate.jpeg",
+  width: 1462,
+  height: 1076,
   alt: "Certificate of CBO registration awarded to Kurya Ndiko Uku Community Based Organisation of Daniel Gausi VDC, TA Mzikubola, by M'Mbelwa District Council",
   caption: "Official registration certificate for Kurya Ndiko Uku Community Based Organisation.",
 };
