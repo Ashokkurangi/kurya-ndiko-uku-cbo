@@ -3,6 +3,13 @@ import type { IconName } from "@/components/Icon";
 // Every "Donate" button goes to the Donate page. Add real payment details there when available.
 export const DONATE_HREF = "/donate";
 
+// PLACEHOLDER: Kurya Ndiko Uku CBO has not yet created its PayChangu merchant
+// account / Payment Link. Once the organisation signs up at paychangu.com and
+// generates a Payment Link for its settlement bank account, replace this with
+// that real URL. Until then this points at PayChangu's own product page,
+// NOT a working donation checkout for this CBO.
+export const PAYCHANGU_DONATE_HREF = "https://paychangu.com/donations";
+
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },

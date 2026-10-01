@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { navItems } from "@/content/site";
 import { Icon } from "./Icon";
@@ -25,6 +26,24 @@ export function Footer() {
           <h2 className="font-display text-2xl tracking-wide text-white">Location</h2>
           <p className="mt-3 flex items-center gap-2">
             <Icon name="pin" className="h-5 w-5 text-brand-orange" /> Mzimba, Northern Malawi
+          </p>
+          <p className="mt-3 flex items-center gap-2">
+            <Image
+              src="/images/Wikipedia-logo-v2-en-25-alt.svg.webp"
+              alt="Wikipedia"
+              width={26}
+              height={30}
+              className="h-5 w-auto object-contain"
+            />
+            <a
+              href="https://en.wikipedia.org/wiki/Mzimba"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-orange hover:text-white"
+            >
+              Learn more about Mzimba
+              <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
           </p>
           {/* TODO: add verified contact details (email / phone / address) when provided. */}
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Button } from "@/components/Button";
 import { Icon, type IconName } from "@/components/Icon";
 import { Crumbs, PageFrame } from "@/components/PageShell";
+import { PAYCHANGU_DONATE_HREF } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Donate | Kurya Ndiko Uku CBO",
@@ -65,7 +66,15 @@ export default function Donate() {
               ))}
             </ul>
 
-            <h2 className="mt-12 font-display text-2xl text-brand-brown">Ways to Give</h2>
+            <div className="mt-12 rounded-2xl bg-brand-green p-6 text-white shadow-sm sm:p-8">
+              <h2 className="font-display text-2xl">Donate Online</h2>
+              <p className="mt-2 text-white/90">Make a secure online donation to support our children and community programs.</p>
+              <div className="mt-5">
+                <Button href={PAYCHANGU_DONATE_HREF} variant="outline" external>Donate Now</Button>
+              </div>
+            </div>
+
+            <h2 className="mt-10 font-display text-2xl text-brand-brown">Ways to Give</h2>
             <ul className="mt-4 divide-y divide-brand-brown/15 rounded-2xl bg-cream ring-1 ring-brand-brown/10">
               {ways.map((w) => (
                 <li key={w.title} className="flex items-start gap-4 px-5 py-4">
